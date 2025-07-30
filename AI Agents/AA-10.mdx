@@ -1,0 +1,129 @@
+---
+title: Jira Ticket Creator Agent
+description: Automate Jira ticket creation from Slack messages using AI validation and Jira Cloud integration.
+---
+
+The **Jira Ticket Creator Agent** reads direct messages from Slack, validates them using AI, extracts required details, and creates Jira tickets automatically. If the message is incomplete or missing confirmation, the agent guides the user to provide the necessary details.
+
+---
+
+## Overview
+
+This agent allows your team to create Jira tickets directly from Slack without logging into Jira. It ensures:
+
+- **Validation of ticket requests** before creation.
+- **Automatic extraction** of required details (Project, Issue Type, Summary, Description).
+- **Seamless Jira ticket creation** in the right project.
+- **Slack notifications** to confirm ticket creation or request missing details.
+
+---
+
+## Real-Time Use Cases
+
+- **Development Teams:** Quickly create bug reports or feature requests directly from Slack chats.
+- **Project Managers:** Streamline backlog creation during stand-up meetings.
+- **Support Teams:** Instantly convert support messages into actionable Jira tickets.
+- **Agile Workflows:** Reduce context-switching between Slack and Jira.
+
+---
+
+## QuickStart
+
+This section provides a **step-by-step beginner-friendly guide** to setting up the Jira Ticket Creator Agent.
+
+---
+
+### 1️Prerequisites
+
+Before you start, ensure you have:
+
+- **Activepieces Account** – [Sign up here](https://activepieces.com)
+- **Slack Workspace Admin access** for bot integration
+- **Jira Cloud Account** with API access ([Get API token here](https://id.atlassian.com/manage-profile/security/api-tokens))
+- **OpenAI Account** with API key ([Get it here](https://platform.openai.com/account/api-keys))
+- At least one existing **Jira Project** where tickets will be created
+
+---
+
+### 2️ Setup Instructions
+
+#### **Step 1 – Log in to Activepieces**
+
+- Go to [https://cloud.activepieces.com](https://cloud.activepieces.com).
+- Sign in or create a free account.
+
+---
+
+#### **Step 2 – Import the Jira Ticket Creator Agent**
+
+- Navigate to **Templates** on the left menu.
+- Search for **Jira Ticket Creator Agent**.
+- Click **Use Template** to add it to your workspace.
+
+---
+
+#### **Step 3 – Connect Slack**
+
+- Click **Connect New Account** for Slack.
+- Authorize Activepieces to access your Slack workspace.
+- Grant permissions to read direct messages and send replies.
+
+---
+
+#### **Step 4 – Connect OpenAI**
+
+- Click **Connect New Account** under OpenAI.
+- Paste your API key from [OpenAI API Keys](https://platform.openai.com/account/api-keys).
+- Save the connection.
+
+---
+
+#### **Step 5 – Connect Jira Cloud**
+
+- Click **Connect New Account** under Jira Cloud.
+- Enter:
+  - **Jira Cloud Base URL** (e.g., `https://yourcompany.atlassian.net`)
+  - **Email address** associated with your Jira account
+  - **API Token** (generate [here](https://id.atlassian.com/manage-profile/security/api-tokens))
+- Save the connection.
+
+---
+
+#### **Step 6 – Configure Project and Issue Type**
+
+- In the workflow settings, ensure:
+  - The **default project** matches the intended Jira project (you can map Project IDs dynamically).
+  - The agent correctly identifies **Issue Types** (Bug, Task, Story, Epic).
+- The AI validator will infer issue type if not explicitly mentioned in the Slack message.
+
+---
+
+#### **Step 7 – Activate the Agent**
+
+- Review all steps in the workflow.
+- Click **Start/Enable Agent**.
+- Your agent is now live and listening to Slack messages.
+
+---
+
+### How It Works
+
+1. **Slack Direct Message Trigger:** The agent listens for messages in your Slack DMs.
+2. **AI Validation:** The message is checked for:
+   - User confirmation (e.g., "Please create this ticket")
+   - Required ticket details (Project, Summary, Description, Issue Type)
+3. **Valid Message:** If all details are present:
+   - AI extracts structured ticket data.
+   - A Jira ticket is created automatically.
+   - A confirmation message is sent back to Slack.
+4. **Incomplete Message:** If details are missing:
+   - The agent sends a polite message in Slack asking for missing information and lists available Jira projects.
+   - Provides an example format to help the user.
+
+---
+
+## Conclusion
+
+The **Jira Ticket Creator Agent** automates ticket creation, saving time and eliminating manual entry. By integrating Slack, OpenAI, and Jira Cloud, it ensures only valid, well-structured requests become Jira tickets, streamlining team workflows.
+
+---
