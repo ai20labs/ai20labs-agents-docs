@@ -1,69 +1,55 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "AI20labs Documentation",
-  "colors": {
-    "primary": "#8A2BE2",
-    "light": "#C084FC",
-    "dark": "#6B21A8"
-  },
-  "favicon": "/favicon.svg",
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": ["index"]
-          },
-          {
-            "group": "AI Agents",
-            "pages": ["AI Agents/AA-4", "AI Agents/AA-5", "AI Agents/AA-10"]
-          }
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Community",
-          "href": "https://ai20labs.com/community",
-          "icon": "slack"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "light": "/logo/ai20labs-light.svg",
-    "dark": "/logo/ai20labs-dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hello@ai20labs.com"
-      },
-      {
-        "label": "Pricing",
-        "href": "https://ai20labs.com/#pricing"
-      },
-      {
-        "label": "About",
-        "href": "https://ai20labs.com/about"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Book a Meeting",
-      "href": "https://calendly.com/the-agent-activation-call/build-smarter-ship-faster-with-ai-agents"
-    }
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/ai20labs",
-      "github": "https://github.com/ai20labs",
-      "linkedin": "https://linkedin.com/company/ai20labs"
-    }
-  }
+	"$schema": "https://mintlify.com/docs.json",
+	"theme": "mint",
+	"name": "AI20labs",
+	"colors": {
+		"primary": "#8A2BE2",
+		"light": "#C084FC",
+		"dark": "#6B21A8"
+	},
+	"favicon": "/favicon.svg",
+	"navigation": {
+		"groups": [
+			{
+				"group": "Get Started",
+				"pages": ["introduction"]
+			},
+			{
+				"group": "AI Agents",
+				"pages": [
+					"ai-agents/email-reply-drafter",
+					"ai-agents/meeting-scheduler-agent",
+					"ai-agents/jira-ticket-creator-agent"
+				]
+			}
+		]
+	},
+	"navbar": {
+		"links": [
+			{
+				"label": "Support",
+				"href": "mailto:hello@ai20labs.com"
+			},
+			{
+				"label": "Pricing",
+				"href": "https://ai20labs.com/#pricing"
+			},
+			{
+				"label": "About",
+				"href": "https://ai20labs.com/about"
+			}
+		],
+		"primary": {
+			"type": "button",
+			"label": "Book a Meeting",
+			"href": "https://calendly.com/the-agent-activation-call/build-smarter-ship-faster-with-ai-agents"
+		}
+	},
+	"footer": {
+		"socials": {
+			"x": "https://x.com/ai20labs",
+			"github": "https://github.com/ai20labs",
+			"linkedin": "https://linkedin.com/company/ai20labs"
+		}
+	}
 }
