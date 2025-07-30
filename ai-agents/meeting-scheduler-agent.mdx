@@ -1,0 +1,121 @@
+---
+title: Meeting Scheduler Agent
+description: Automate meeting scheduling via Gmail, Google Calendar, and AI.
+---
+
+The **Meeting Scheduler Agent** intelligently reads your emails, detects meeting requests, checks your availability from Google Calendar, and sends a polite response suggesting free time slots. This automation saves time and prevents back-and-forth scheduling emails.
+
+---
+
+## Overview
+
+The **Meeting Scheduler Agent** helps you:
+
+- **Monitor Gmail for meeting-related emails**.
+- **Use AI to classify emails** that request appointments or discussions.
+- **Fetch your Google Calendar events** to check availability.
+- **Automatically draft and send professional replies** suggesting suitable meeting slots.
+- **Avoid conflicts with your existing schedule and sleep hours (9 PM – 9 AM)**.
+
+---
+
+## Real-Time Use Cases
+
+- **Sales Teams:** Quickly respond to prospective clients requesting a meeting without manual scheduling.
+- **Customer Support:** Automatically offer available times for customer calls or issue discussions.
+- **Managers & Executives:** Save time by automating responses to meeting invites and preventing double bookings.
+- **Freelancers:** Provide instant availability to clients requesting consultation calls.
+
+---
+
+## QuickStart
+
+Follow these instructions to set up the Meeting Scheduler Agent, even if you're new to automation.
+
+---
+
+### 1️ Prerequisites
+
+Before starting, make sure you have:
+
+- **Activepieces Account** – [Sign up here](https://activepieces.com)
+- **Gmail Account** connected with API permissions
+- **Google Calendar Access** with events enabled
+- **OpenAI Account** – [Get your API Key here](https://platform.openai.com/account/api-keys)
+- **Basic knowledge of your working hours and meeting preferences**
+
+---
+
+### 2️ Setup Instructions
+
+#### **Step 1 – Log in to Activepieces**
+
+- Go to [https://cloud.activepieces.com](https://cloud.activepieces.com).
+- Sign in or create a free account.
+
+---
+
+#### **Step 2 – Import the Meeting Scheduler Agent**
+
+- In the **Templates** section, search for **Meeting Scheduler Agent**.
+- Click **Use Template** to import it into your workspace.
+
+---
+
+#### **Step 3 – Connect Gmail**
+
+- When prompted, click **Connect New Account**.
+- Sign in to your Google account.
+- Grant permissions for reading and sending emails on your behalf.
+- Once connected, you’ll see Gmail marked as active in your connections list.
+
+---
+
+#### **Step 4 – Connect Google Calendar**
+
+- Select **Google Calendar** in the workflow connections.
+- Click **Connect New Account** and log in with the same Google account used for Gmail.
+- Allow permission to **read your events**.
+- This connection is necessary for the agent to know your busy/free time slots.
+
+---
+
+#### **Step 5 – Connect OpenAI**
+
+- Click **Connect New Account** under OpenAI.
+- Enter your API key from [OpenAI](https://platform.openai.com/account/api-keys).
+- Save the connection.
+
+---
+
+#### **Step 6 – Customize Agent Settings (Optional)**
+
+- **Working Hours:** The agent automatically avoids suggesting times between **9:00 PM and 9:00 AM**. You can modify this behavior in the workflow’s prompt step if needed.
+- **Target Calendar:** Ensure the workflow is pointing to the correct Google Calendar ID.
+- **Email Tone:** Modify the prompt text in the AI step to change reply style (e.g., formal, casual).
+
+---
+
+#### **Step 7 – Activate the Agent**
+
+- Review all workflow steps.
+- Click **Start/Enable Agent**.
+- The automation will now monitor incoming emails and send meeting availability responses automatically.
+
+---
+
+### What Happens Next
+
+- When you receive a new email:
+  1. AI determines if the message is a meeting request.
+  2. If yes, it retrieves your Google Calendar events.
+  3. AI generates a polite email with available slots excluding busy times and sleep hours.
+  4. The response is **sent directly to the email sender** without manual intervention.
+
+---
+
+## Conclusion
+
+The **Meeting Scheduler Agent** automates scheduling by combining Gmail, Google Calendar, and AI. It prevents double bookings, saves time, and ensures you never miss an opportunity to connect with clients, colleagues, or leads.
+
+---
