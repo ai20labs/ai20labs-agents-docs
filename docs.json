@@ -3,9 +3,9 @@
 	"theme": "mint",
 	"name": "AI20labs",
 	"colors": {
-		"primary": "#8A2BE2",
-		"light": "#C084FC",
-		"dark": "#6B21A8"
+		"primary": "#8353E2",
+		"light": "#AB8AEB",
+		"dark": "#8353E2"
 	},
 	"favicon": "logos/favicon.svg",
 	"navigation": {
