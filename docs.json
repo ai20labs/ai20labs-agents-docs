@@ -7,7 +7,7 @@
 		"light": "#C084FC",
 		"dark": "#6B21A8"
 	},
-	"favicon": "/favicon.svg",
+	"favicon": "logos/favicon.svg",
 	"navigation": {
 		"groups": [
 			{
@@ -23,6 +23,10 @@
 				]
 			}
 		]
+	},
+	"logo": {
+		"light": "/logos/ai20labs-logo.png",
+		"dark": "/logos/ai20labs-logo.png"
 	},
 	"navbar": {
 		"links": [
