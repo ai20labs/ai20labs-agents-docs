@@ -1,22 +1,22 @@
 ---
-title: Email Reply Drafter
-description: Automate drafting professional email replies using Gmail and OpenAI.
+title: "Email Reply Drafter Agent"
+description: "Automate drafting professional email replies using Gmail and OpenAI GPT models."
 ---
 
-The **Email Reply Drafter** agent automatically analyzes incoming emails and generates professional, context-aware draft replies using AI. This workflow integrates with **Gmail** and **OpenAI GPT models**, saving you time and ensuring high-quality communication.
+The Email Reply Drafter intelligently analyzes incoming emails and generates **context-aware draft replies**, saving time while ensuring high-quality and timely communication.
 
 ---
 
 ## Overview
 
-The **Email Reply Drafter** is designed to:
+The **Email Reply Drafter Agent** helps you:
 
-- **Monitor your Gmail inbox** for new incoming emails.
-- **Classify** whether the email requires a reply.
-- **Generate a contextually accurate and professional draft response** based on the entire conversation thread.
-- **Save the response as a Gmail draft**, ready for manual review and sending.
+- Monitor your Gmail inbox for new incoming emails.
+- Automatically classify emails that require a reply.
+- Draft professional and contextually relevant responses, considering the entire email thread history.
+- Save the response as a Gmail draft, ready for manual review and sending.
 
-This agent reduces manual effort in handling repetitive email responses, ensuring timely and consistent communication.
+This agent reduces manual effort in handling repetitive email responses, improves accuracy, and ensures consistent communication.
 
 ---
 
@@ -24,100 +24,111 @@ This agent reduces manual effort in handling repetitive email responses, ensurin
 
 - **Customer Support Teams** – Auto-generate responses for frequently asked customer queries, reducing average response time.
 - **Sales and Lead Management** – Draft professional follow-up emails for inbound leads to maintain engagement.
-- **Internal Communications** – Handle high volumes of repetitive requests (e.g., meeting confirmations, document sharing).
-- **Freelancers and Consultants** – Save time on drafting replies to inquiries while maintaining a professional tone.
+- **Internal Communications** – Handle repetitive requests (e.g., meeting confirmations, document sharing).
+- **Freelancers and Consultants** – Save time replying to inquiries while maintaining a professional tone.
 
 ---
 
 ## QuickStart
 
-This section will guide you through setting up the **Email Reply Drafter** from scratch, even if you're a beginner.
-
----
+Follow these steps to set up the Email Reply Drafter Agent.
 
 ### Prerequisites
 
-Before you start, make sure you have:
-
-- **An Activepieces account** (Sign up here: [https://activepieces.com](https://activepieces.com))
-- **A Gmail account** that you will connect to the agent
-- **Access to Google Workspace API permissions** (Activepieces will request these during setup)
-- **An OpenAI account** ([Sign up here](https://platform.openai.com)) with an API key to use GPT models
-- **Basic knowledge of email handling** (optional but helpful)
+- An Activepieces account (Sign up here: https://activepieces.com)
+- A Gmail account that you will connect to the agent
+  - Reading emails
+  - Creating drafts
+- An OpenAI account (Sign up here) with an API key to use GPT models
 
 ---
 
-### Setup Instructions
+## Setup Instructions
 
-Follow these steps carefully:
+### Step 1 – Log in to Activepieces
 
-#### **Step 1 – Log in to Activepieces**
-
-- Go to [https://cloud.activepieces.com](https://cloud.activepieces.com)
-- Sign in with your account or create a free one if you’re new.
+- Visit [Activepieces Cloud](https://cloud.activepieces.com)
+- Sign in or create a free account.
 
 ---
 
-#### **Step 2 – Import the Email Reply Drafter Agent**
+### Step 2 – Import Workflow from AI20Labs
 
-- Navigate to the **Templates** section from the left menu.
-- Search for **Email Reply Drafter**.
-- Click **Use Template** to import it into your workspace.
+1. Go to [AI20Labs Agent Directory](https://ai20-agent-directory.lovable.app/)
+2. Search for **Email Reply Drafter Agent**.
+3. Subscribe to the agent.
+4. Click **Open Workflow Template** → **Import**.
 
----
-
-#### **Step 3 – Connect Gmail**
-
-1. When prompted to connect Gmail:
-   - Click **Connect New Account**.
-   - A Google login window will appear; choose the Gmail account you want to use.
-   - Grant the requested permissions (reading emails, creating drafts).
-   - Once authorized, you’ll see the Gmail connection listed as active.
-
-**Tip:** If you encounter permission issues, ensure:
-
-- You are logged in to the correct Google account.
-- “Less secure app access” or API access is allowed (Google security settings).
+> Note: Ensure you’re logged in to Activepieces before importing.
 
 ---
 
-#### **Step 4 – Connect OpenAI**
+### Step 3 – Connect Gmail (Trigger Node)
 
-1. Select **OpenAI** in the connections list.
-2. Click **Connect New Account**.
-3. Enter your OpenAI API key.
-   - You can get your key from [OpenAI API Keys](https://platform.openai.com/account/api-keys).
-4. Save the connection.
-
----
-
-#### **Step 5 – Review and Customize Settings**
-
-- Open the agent workflow steps.
-- Optionally, adjust:
-  - **Email classification rules** (if you want stricter or looser conditions).
-  - **AI tone settings** (modify temperature or prompt style for more/less creative replies).
+- Open **Node 1 – Gmail New Email**.
+- Click **Create Connection** → Select Gmail account.
+- Grant required permissions.
+- Set **Label = INBOX** to avoid looping issues.
 
 ---
 
-#### **Step 6 – Activate the Agent**
+### Step 4 – Connect OpenAI for Email Classification (Node 2)
 
-- Once both Gmail and OpenAI connections are active, click **Start/Enable Agent**.
-- The bot will begin monitoring your inbox for new emails and automatically draft replies.
+- Open **Node 2 – Ask ChatGPT**.
+- Create a new OpenAI connection with your **Private API Key**. You can get it from [OpenAI API Keys](https://platform.openai.com/account/api-keys).
+- Recommended Model: **gpt-4o-mini**.
 
 ---
 
-### What Happens Next
+### Step 5 – Connect OpenAI for Draft Reply (Node 5)
 
-- When a new email arrives:
-  1. The agent checks if a reply is needed.
-  2. If yes, it drafts a professional response.
-  3. You’ll find the draft in your **Gmail → Drafts** folder, ready for manual review and sending.
+- Open **Node 5 – Ask ChatGPT**.
+- Use the same OpenAI connection.
+- Recommended Model: **gpt-4o**.
+
+---
+
+### Step 6 – Send Email Draft (Node 6)
+
+- Open **Node 6 – Gmail Send Email**.
+- Uses the previous Gmail connection.
+
+---
+
+## How to Run This Workflow
+
+1. **Test Each Node**:
+   - For the Trigger Node, click **Load Sample Data**.
+   - For other nodes, click **Test Step** to verify connections.
+2. **Publish Workflow**:
+   - Click **Publish** in the top-right corner of Activepieces.
+
+---
+
+## What Happens Next
+
+Once published:
+
+1. A new email arrives in your Gmail inbox.
+2. The agent checks if it requires a human response.
+3. If yes, a draft reply is generated using AI.
+4. You can review the draft under **Gmail → Drafts** before sending.
 
 ---
 
 ## Conclusion
 
-The **Email Reply Drafter** is a powerful AI-based automation tool that helps professionals manage email responses efficiently. By leveraging Gmail and OpenAI GPT models, it reduces manual effort, improves response quality, and ensures timely communication.
+The **Email Reply Drafter Agent** is a powerful automation tool that helps professionals manage emails efficiently.  
+By leveraging Gmail and OpenAI GPT models, it:
+
+- Reduces manual effort
+- Improves response quality
+- Ensures timely and consistent communication
 
 ---
+
+## Useful Links
+
+- [Activepieces Cloud](https://cloud.activepieces.com)
+- [OpenAI API Keys](https://platform.openai.com/account/api-keys)
+- [AI20Labs Agent Directory](https://ai20-agent-directory.lovable.app)
