@@ -1,121 +1,143 @@
 ---
-title: Meeting Scheduler Agent
-description: Automate meeting scheduling via Gmail, Google Calendar, and AI.
+title: "Meeting Scheduler Agent"
+description: "Automate responding to meeting requests by detecting intent in Gmail, analyzing your Google Calendar for availability, and drafting context-aware replies using OpenAI GPT models."
 ---
 
-The **Meeting Scheduler Agent** intelligently reads your emails, detects meeting requests, checks your availability from Google Calendar, and sends a polite response suggesting free time slots. This automation saves time and prevents back-and-forth scheduling emails.
+The **Meeting Scheduler Agent** scans your Gmail inbox for meeting-related requests, analyzes your Google Calendar for current availability, and drafts clear, polite responses—all powered by OpenAI’s GPT models. The agent saves these replies as Gmail drafts for your review, making scheduling seamless and professional.
 
 ---
 
 ## Overview
 
-The **Meeting Scheduler Agent** helps you:
+The **Meeting Scheduler Agent** enables you to:
 
-- **Monitor Gmail for meeting-related emails**.
-- **Use AI to classify emails** that request appointments or discussions.
-- **Fetch your Google Calendar events** to check availability.
-- **Automatically draft and send professional replies** suggesting suitable meeting slots.
-- **Avoid conflicts with your existing schedule and sleep hours (9 PM – 9 AM)**.
+- Monitor your Gmail inbox for both explicit and subtle requests to schedule meetings, appointments, or calls.
+- Intelligently determine from each email if the sender is seeking your availability, using advanced language analysis.
+- Retrieve all busy slots from your connected Google Calendar—never offering times that conflict with existing events.
+- Suggest only 30-minute (or longer) windows during your working hours (09:00–17:00), unless the sender asks for weekends.
+- Automatically draft a reply with 2–4 available slots, tailoring responses to the email’s tone and full thread history.
+- Save the response as a Gmail draft so you stay in control of all outgoing scheduling replies.
+
+This agent dramatically reduces manual effort and confusion in booking meetings, ensuring your responses are prompt, clear, and never double-booked.
 
 ---
 
 ## Real-Time Use Cases
 
-- **Sales Teams:** Quickly respond to prospective clients requesting a meeting without manual scheduling.
-- **Customer Support:** Automatically offer available times for customer calls or issue discussions.
-- **Managers & Executives:** Save time by automating responses to meeting invites and preventing double bookings.
-- **Freelancers:** Provide instant availability to clients requesting consultation calls.
+- **Executives & Managers**: Reply instantly to meeting requests without sifting through calendars.
+- **Sales & Success Teams**: Get prospects and clients booked at your real available times—no back-and-forth needed.
+- **Freelancers & Consultants**: Provide accurate openings to clients, improving professionalism.
+- **Office Managers/Admins**: Expedite team or leadership scheduling using real-time calendar data.
 
 ---
 
 ## QuickStart
 
-Follow these instructions to set up the Meeting Scheduler Agent, even if you're new to automation.
-
----
+Follow these steps to set up your Meeting Scheduler Agent.
 
 ### Prerequisites
 
-Before starting, make sure you have:
-
-- **Activepieces Account** – [Sign up here](https://activepieces.com)
-- **Gmail Account** connected with API permissions
-- **Google Calendar Access** with events enabled
-- **OpenAI Account** – [Get your API Key here](https://platform.openai.com/account/api-keys)
-- **Basic knowledge of your working hours and meeting preferences**
+- **Activepieces account** (Sign up at [activepieces.com](https://activepieces.com))
+- **Gmail account:** for reading emails and saving reply drafts
+- **Google Calendar account:** where meetings and appointments are managed
+- **OpenAI account** and API key: to power intelligent classification and drafting
 
 ---
 
-### Setup Instructions
+## Setup Instructions
 
-#### **Step 1 – Log in to Activepieces**
+### Step 1 – Log in to Activepieces
 
-- Go to [https://cloud.activepieces.com](https://cloud.activepieces.com).
-- Sign in or create a free account.
-
----
-
-#### **Step 2 – Import the Meeting Scheduler Agent**
-
-- In the **Templates** section, search for **Meeting Scheduler Agent**.
-- Click **Use Template** to import it into your workspace.
+- Navigate to [Activepieces Cloud](https://cloud.activepieces.com) and sign in or register.
 
 ---
 
-#### **Step 3 – Connect Gmail**
+### Step 2 – Import the Meeting Scheduler Workflow
 
-- When prompted, click **Connect New Account**.
-- Sign in to your Google account.
-- Grant permissions for reading and sending emails on your behalf.
-- Once connected, you’ll see Gmail marked as active in your connections list.
+1. Go to [AI20Labs Agent Directory](https://ai20-agent-directory.lovable.app/)
+2. Look up **Meeting Scheduler Agent**.
+3. Subscribe to the agent and click **Open Workflow Template** → **Import**.
 
----
-
-#### **Step 4 – Connect Google Calendar**
-
-- Select **Google Calendar** in the workflow connections.
-- Click **Connect New Account** and log in with the same Google account used for Gmail.
-- Allow permission to **read your events**.
-- This connection is necessary for the agent to know your busy/free time slots.
+> Ensure you are signed in to Activepieces before importing.
 
 ---
 
-#### **Step 5 – Connect OpenAI**
+### Step 3 – Connect Gmail for Trigger Node 1
 
-- Click **Connect New Account** under OpenAI.
-- Enter your API key from [OpenAI](https://platform.openai.com/account/api-keys).
-- Save the connection.
-
----
-
-#### **Step 6 – Customize Agent Settings (Optional)**
-
-- **Working Hours:** The agent automatically avoids suggesting times between **9:00 PM and 9:00 AM**. You can modify this behavior in the workflow’s prompt step if needed.
-- **Target Calendar:** Ensure the workflow is pointing to the correct Google Calendar ID.
-- **Email Tone:** Modify the prompt text in the AI step to change reply style (e.g., formal, casual).
+- **Node: Gmail New Email**
+- Click **Create Connection** → Select Gmail account.
+- Grant required permissions and **Save** Connection.
+- Set **Label = INBOX** to avoid looping issues.
 
 ---
 
-#### **Step 7 – Activate the Agent**
+### Step 4 – Connect to OpenAI Node 2
 
-- Review all workflow steps.
-- Click **Start/Enable Agent**.
-- The automation will now monitor incoming emails and send meeting availability responses automatically.
+- Open **Node 2 – Ask ChatGPT**.
+- Create a new OpenAI connection with your **Private API Key**. You can get it from [OpenAI API Keys](https://platform.openai.com/account/api-keys).
+- Recommended Model: **gpt-4o-mini**.
 
 ---
 
-### What Happens Next
+### Step 5 – Connect to Google Calendar Node 5
 
-- When you receive a new email:
-  1. AI determines if the message is a meeting request.
-  2. If yes, it retrieves your Google Calendar events.
-  3. AI generates a polite email with available slots excluding busy times and sleep hours.
-  4. The response is **sent directly to the email sender** without manual intervention.
+- **Node: Google Calendar – Get Events**
+- Click **Create Connection** → Select Gmail account.
+- Grant required permissions and **Save** Connection
+- Set **Calendar = Your Calendar** to get your Timings.
+
+---
+
+### Step 6 – Connect to OpenAI in Node 7
+
+- **Node: Ask ChatGPT**
+  - Open **Node 5 – Ask ChatGPT**.
+  - Use the same OpenAI connection.
+  - Recommended Model: **gpt-4o**.
+
+---
+
+### Step 8 – Connect to Gmail in Node 8
+
+- Open **Node 8 – Gmail Send Email**.
+- Uses the previous Gmail connection.
+
+---
+
+## How to Run This Workflow
+
+1. **Test Each Node:**
+   - Use **Load Sample Data** for the trigger.
+   - Click **Test Step** for intermediate nodes to verify all connections and logic.
+2. **Publish Workflow:**
+   - Click **Publish** in the top-right of Activepieces.
+
+---
+
+## What Happens Next
+
+Once published:
+
+1. New email arrives in Gmail → Agent checks if it’s a meeting request.
+2. If yes → Checks your Google Calendar for busy times over the next 7 days.
+3. Suggests 2–4 open slots during business hours and drafts a reply.
+4. Draft appears in Gmail for your review and sending.
 
 ---
 
 ## Conclusion
 
-The **Meeting Scheduler Agent** automates scheduling by combining Gmail, Google Calendar, and AI. It prevents double bookings, saves time, and ensures you never miss an opportunity to connect with clients, colleagues, or leads.
+The **Meeting Scheduler Agent** automates detecting meeting requests and responding with real, up-to-date availability.
+Leverage Gmail, Google Calendar, and OpenAI to:
+
+- Eliminate scheduling back-and-forth
+- Avoid double-bookings
+- Sound professional every time
 
 ---
+
+## Useful Links
+
+- [Activepieces Cloud](https://cloud.activepieces.com)
+- [OpenAI API Keys](https://platform.openai.com/account/api-keys)
+- [AI20Labs Agent Directory](https://ai20-agent-directory.lovable.app)
